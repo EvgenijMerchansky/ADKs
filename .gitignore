@@ -1,0 +1,93 @@
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+*.pyd
+*.dll
+
+# Packaging / build
+build/
+dist/
+.eggs/
+*.egg-info/
+*.egg
+pip-wheel-metadata/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# =========================
+# Environment / secrets
+# =========================
+.env
+.env.*
+!.env.example
+
+# =========================
+# IDE / editor
+# =========================
+.idea/
+.vscode/
+*.iml
+
+# =========================
+# Testing / coverage / lint
+# =========================
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+.tox/
+.nox/
+
+# =========================
+# Logs
+# =========================
+*.log
+logs/
+
+# =========================
+# OS files
+# =========================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# =========================
+# Jupyter
+# =========================
+.ipynb_checkpoints/
+
+# =========================
+# Local runtime / temp
+# =========================
+tmp/
+temp/
+*.tmp
+
+# =========================
+# ADK local artifacts
+# =========================
+.adk/
+
+# =========================
+# Local databases / caches
+# =========================
+*.sqlite3
+*.db
+
+# =========================
+# PyInstaller
+# =========================
+*.manifest
+*.spec
