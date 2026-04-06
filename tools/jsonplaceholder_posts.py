@@ -3,14 +3,15 @@ from ..clients.jsonplaceholder_client import JsonPlaceholderClient
 
 _client = JsonPlaceholderClient()
 
-def get_posts(limit: int = 10) -> list[dict[str, Any]]:
+def get_posts(limit: int = 10, user_id = None) -> list[dict[str, Any]]:
     """
     Fetch posts from JSONPlaceholder.
 
     Args:
         limit: Number of posts to return.
+        user_id: Users posts to return.
     """
-    return _client.get_posts(limit=limit)
+    return _client.get_posts(limit=limit, user_id=user_id)
 
 def get_post(post_id: int) -> dict[str, Any] | None:
     """

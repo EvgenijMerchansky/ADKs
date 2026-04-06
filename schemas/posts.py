@@ -14,4 +14,4 @@ class SinglePostOutput(BaseModel):
     post: PostOutput = Field(description="Post")
 
 class PostsOutput(BaseModel):
-    users: list[PostOutput] = Field(description="List of posts")
+    posts: list[PostOutput] = Field(description="List of posts")
