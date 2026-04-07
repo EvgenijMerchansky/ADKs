@@ -15,57 +15,40 @@ ADKs/
 │   ├── agents/
 │   │   ├── posts/
 │   │   │   ├── instructions/
-│   │   │   │   ├── __init__.py
 │   │   │   │   └── posts.py
 │   │   │   ├── schemas/
-│   │   │   │   ├── __init__.py
 │   │   │   │   └── posts.py
 │   │   │   ├── tools/
-│   │   │   │   ├── __init__.py
 │   │   │   │   └── jsonplaceholder_posts.py
-│   │   │   ├── __init__.py
 │   │   │   ├── post_pipeline.py
 │   │   │   └── posts_pipeline.py
 │   │   ├── users/
 │   │   │   ├── instructions/
-│   │   │   │   ├── __init__.py
 │   │   │   │   └── users.py
 │   │   │   ├── schemas/
-│   │   │   │   ├── __init__.py
 │   │   │   │   └── users.py
 │   │   │   ├── tools/
-│   │   │   │   ├── __init__.py
 │   │   │   │   └── jsonplaceholder_users.py
-│   │   │   ├── __init__.py
 │   │   │   ├── user_pipeline.py
 │   │   │   └── users_pipeline.py
 │   │   ├── comments/
 │   │   │   ├── instructions/
-│   │   │   │   ├── __init__.py
 │   │   │   │   └── comments.py
 │   │   │   ├── schemas/
-│   │   │   │   ├── __init__.py
 │   │   │   │   └── comments.py
 │   │   │   ├── tools/
-│   │   │   │   ├── __init__.py
 │   │   │   │   └── jsonplaceholder_comments.py
-│   │   │   ├── __init__.py
 │   │   │   ├── comment_pipeline.py
 │   │   │   └── comments_pipeline.py
-│   │   ├── __init__.py
 │   │   └── root.py
 │   ├── shared/
 │   │   ├── callbacks/
-│   │   │   ├── __init__.py
 │   │   │   └── formatting.py
 │   │   ├── clients/
-│   │   │   ├── __init__.py
 │   │   │   └── jsonplaceholder_client.py
 │   │   ├── constants/
-│   │   │   ├── __init__.py
 │   │   │   ├── formatting.py
 │   │   │   └── pipelines.py
-│   │   └── __init__.py
 │   ├── agent.py
 │   ├── Dockerfile
 │   └── requirements.txt
