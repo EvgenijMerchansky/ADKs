@@ -46,9 +46,9 @@ ADKs/
 │   │   │   └── formatting.py
 │   │   ├── clients/
 │   │   │   └── jsonplaceholder_client.py
-│   │   ├── constants/
-│   │   │   ├── formatting.py
-│   │   │   └── pipelines.py
+│   │   └── constants/
+│   │       ├── formatting.py
+│   │       └── pipelines.py
 │   ├── agent.py
 │   ├── Dockerfile
 │   └── requirements.txt
