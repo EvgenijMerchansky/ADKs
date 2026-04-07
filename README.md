@@ -9,49 +9,74 @@ Simple ADK application, which works with: [www.jsonplaceholder.typicode.com](htt
 ```
 ADKs/
 ├── infrastructure/
+│   │
 │   └── docker/
 │       └── docker-compose.yml
+│
 ├── jsonplaceholder_adk/
+│   │
 │   ├── agents/
+│   │   │
 │   │   ├── posts/
+│   │   │   │
 │   │   │   ├── instructions/
 │   │   │   │   └── posts.py
+│   │   │   │
 │   │   │   ├── schemas/
 │   │   │   │   └── posts.py
+│   │   │   │
 │   │   │   ├── tools/
 │   │   │   │   └── jsonplaceholder_posts.py
+│   │   │   │
 │   │   │   ├── post_pipeline.py
 │   │   │   └── posts_pipeline.py
+│   │   │
 │   │   ├── users/
+│   │   │   │
 │   │   │   ├── instructions/
 │   │   │   │   └── users.py
+│   │   │   │
 │   │   │   ├── schemas/
 │   │   │   │   └── users.py
+│   │   │   │
 │   │   │   ├── tools/
 │   │   │   │   └── jsonplaceholder_users.py
+│   │   │   │
 │   │   │   ├── user_pipeline.py
 │   │   │   └── users_pipeline.py
+│   │   │
 │   │   ├── comments/
+│   │   │   │
 │   │   │   ├── instructions/
 │   │   │   │   └── comments.py
+│   │   │   │
 │   │   │   ├── schemas/
 │   │   │   │   └── comments.py
+│   │   │   │
 │   │   │   ├── tools/
 │   │   │   │   └── jsonplaceholder_comments.py
+│   │   │   │
 │   │   │   ├── comment_pipeline.py
 │   │   │   └── comments_pipeline.py
+│   │   │   
 │   │   └── root.py
+│   │
 │   ├── shared/
+│   │   │
 │   │   ├── callbacks/
 │   │   │   └── formatting.py
+│   │   │
 │   │   ├── clients/
 │   │   │   └── jsonplaceholder_client.py
+│   │   │
 │   │   └── constants/
 │   │       ├── formatting.py
 │   │       └── pipelines.py
+│   │
 │   ├── agent.py
 │   ├── Dockerfile
 │   └── requirements.txt
+│
 ├── .env.example
 ├── .gitignore
 ├── LICENSE
