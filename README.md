@@ -2,7 +2,7 @@
 
 ## Overview
 
-Simple ADK application, which works with: [www.jsonplaceholder.typicode.com](https://jsonplaceholder.typicode.com/)
+Simple ADK application, related to: [www.jsonplaceholder.typicode.com](https://jsonplaceholder.typicode.com/)
 
 ## Folder Structure
 
