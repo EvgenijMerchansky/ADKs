@@ -39,6 +39,19 @@ ADKs/
 │   │   │   ├── __init__.py
 │   │   │   ├── user_pipeline.py
 │   │   │   └── users_pipeline.py
+│   │   ├── comments/
+│   │   │   ├── instructions/
+│   │   │   │   ├── __init__.py
+│   │   │   │   └── comments.py
+│   │   │   ├── schemas/
+│   │   │   │   ├── __init__.py
+│   │   │   │   └── comments.py
+│   │   │   ├── tools/
+│   │   │   │   ├── __init__.py
+│   │   │   │   └── jsonplaceholder_comments.py
+│   │   │   ├── __init__.py
+│   │   │   ├── comment_pipeline.py
+│   │   │   └── comments_pipeline.py
 │   │   ├── __init__.py
 │   │   └── root.py
 │   ├── shared/
@@ -48,6 +61,10 @@ ADKs/
 │   │   ├── clients/
 │   │   │   ├── __init__.py
 │   │   │   └── jsonplaceholder_client.py
+│   │   ├── constants/
+│   │   │   ├── __init__.py
+│   │   │   ├── formatting.py
+│   │   │   └── pipelines.py
 │   │   └── __init__.py
 │   ├── agent.py
 │   ├── Dockerfile
@@ -66,7 +83,7 @@ ADKs/
 - **AI/ML**: Vertex AI (Gemini)
 - **Language**: Python 3.11+
 
-### Agents (Cloud Run Services)
+### Agents
 
 - `jsonplaceholder_adk`
 

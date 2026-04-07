@@ -5,6 +5,9 @@ from .users.users_pipeline import users_pipeline_agent
 from .users.user_pipeline import user_pipeline_agent
 from .posts.post_pipeline import post_pipeline_agent
 from .posts.posts_pipeline import posts_pipeline_agent
+from .comments.comments_pipeline import comments_pipeline_agent
+from .comments.comment_pipeline import comment_pipeline_agent
+
 
 from jsonplaceholder_adk.shared.callbacks.formatting import pretty_pipeline_result
 
@@ -13,7 +16,9 @@ ROOT_AGENT_INSTRUCTION = """
 Якщо користувач просто вітається — відповідай звичайним текстом.
 Якщо користувач просить отримати користувача/користувачів із JSONPlaceholder — використовуй users pipelines.
 Якщо користувач просить отримати публыкацію/публыкації із JSONPlaceholder — використовуй posts pipelines.
+Якщо користувач просить отримати коментар/коментарі із JSONPlaceholder — використовуй comments pipelines.
 Якщо користувач просить отримати публыкацію/публыкації певного юзера із JSONPlaceholder — використовуй posts pipelines.
+Якщо користувач просить отримати коментар/коментарі певного посту із JSONPlaceholder — використовуй comments pipelines.
 Усі відповіді повинні повертатися - відформатовані в JSON форматі.
 """
 
@@ -37,6 +42,14 @@ root_agent = LlmAgent(
         ),
         AgentTool(
             agent=posts_pipeline_agent,
+            skip_summarization=False,
+        ),
+        AgentTool(
+            agent=comment_pipeline_agent,
+            skip_summarization=False,
+        ),
+        AgentTool(
+            agent=comments_pipeline_agent,
             skip_summarization=False,
         ),
     ],
