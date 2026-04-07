@@ -1,5 +1,6 @@
 import requests
 
+
 class JsonPlaceholderClient:
     BASE_URL = "https://jsonplaceholder.typicode.com"
 
@@ -16,7 +17,7 @@ class JsonPlaceholderClient:
         response.raise_for_status()
         return response.json()
 
-    def get_posts(self, limit: int = 10, user_id = None) -> list[dict]:
+    def get_posts(self, limit: int = 10, user_id=None) -> list[dict]:
         if user_id is not None:
             url = f"{self.BASE_URL}/posts?userId={user_id}&_limit={limit}"
         else:

@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  json-placeholder-agent:
+    build:
+      context: ../..
+      dockerfile: jsonplaceholder_adk/Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      GOOGLE_APPLICATION_CREDENTIALS: /var/secrets/google/sa.json
+    volumes:
+      - ${GOOGLE_CREDENTIALS_FILE}:/var/secrets/google/sa.json:ro
+    env_file:
+      - ../../.env

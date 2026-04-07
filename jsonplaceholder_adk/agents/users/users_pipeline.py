@@ -1,8 +1,8 @@
 from google.adk.agents import LlmAgent, SequentialAgent
 
-from ...schemas.users import UsersOutput
-from ...tools.jsonplaceholder_users import get_users
-from ...prompts.users import FETCH_USERS_INSTRUCTION, FORMAT_USERS_INSTRUCTION
+from .schemas.users import UsersOutput
+from .tools.jsonplaceholder_users import get_users
+from .instructions.users import FETCH_USERS_INSTRUCTION, FORMAT_USERS_INSTRUCTION
 
 fetch_users_agent = LlmAgent(
     model="gemini-2.5-flash",

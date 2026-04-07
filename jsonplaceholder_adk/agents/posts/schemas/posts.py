@@ -1,5 +1,6 @@
 from pydantic import BaseModel, Field
 
+
 # --- Schemas ---
 
 class PostOutput(BaseModel):
@@ -8,10 +9,12 @@ class PostOutput(BaseModel):
     title: str
     body: str
 
+
 # --- Outputs ---
 
 class SinglePostOutput(BaseModel):
     post: PostOutput = Field(description="Post")
+
 
 class PostsOutput(BaseModel):
     posts: list[PostOutput] = Field(description="List of posts")

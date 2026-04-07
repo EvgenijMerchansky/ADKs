@@ -4,15 +4,29 @@ from typing import Any, Dict, Optional
 from google.adk.tools.base_tool import BaseTool
 from google.adk.tools.tool_context import ToolContext
 
-from ..helpers.constants import supported_tools, service_keys
+supported_tools = {
+    "users_pipeline_agent",
+    "user_pipeline_agent",
+    "posts_pipeline_agent",
+    "post_pipeline_agent",
+}
+
+service_keys = {
+    "formatted_users_json",
+    "formatted_user_json",
+    "raw_users_json",
+    "raw_user_json",
+    "raw_posts_json",
+    "raw_post_json",
+}
+
 
 def pretty_pipeline_result(
-    tool: BaseTool,
-    args: Dict[str, Any],
-    tool_context: ToolContext,
-    tool_response: Dict[str, Any],
+        tool: BaseTool,
+        args: Dict[str, Any],
+        tool_context: ToolContext,
+        tool_response: Dict[str, Any],
 ) -> Optional[Dict[str, Any]]:
-
     if tool.name not in supported_tools:
         return None
 

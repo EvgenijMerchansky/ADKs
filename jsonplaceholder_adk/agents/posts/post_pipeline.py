@@ -1,8 +1,8 @@
 from google.adk.agents import LlmAgent, SequentialAgent
 
-from ...schemas.posts import SinglePostOutput
-from ...tools.jsonplaceholder_posts import get_post
-from ...prompts.posts import FETCH_POST_INSTRUCTION, FORMAT_POST_INSTRUCTION
+from .schemas.posts import SinglePostOutput
+from .tools.jsonplaceholder_posts import get_post
+from .instructions.posts import FETCH_POST_INSTRUCTION, FORMAT_POST_INSTRUCTION
 
 fetch_post_agent = LlmAgent(
     model="gemini-2.5-flash",
