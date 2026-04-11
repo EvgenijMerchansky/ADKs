@@ -6,10 +6,11 @@ from google.adk.a2a.utils.agent_to_a2a import to_a2a
 from comments.agent import root_agent
 
 PORT = int(os.environ.get("PORT", 8000))
+COMMENTS_AGENT_URL = os.environ.get("COMMENTS_AGENT_URL", "http://comments-agent:8000")
 
 agent_card = AgentCard(
     name="comments_agent",
-    url="http://comments-agent:8000",
+    url=COMMENTS_AGENT_URL,
     description="Agent that works with comments operations.",
     version="1.0.0",
     capabilities={},

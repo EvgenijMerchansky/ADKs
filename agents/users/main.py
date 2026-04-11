@@ -6,10 +6,11 @@ from google.adk.a2a.utils.agent_to_a2a import to_a2a
 from users.agent import root_agent
 
 PORT = int(os.environ.get("PORT", 8000))
+USERS_AGENT_URL = os.environ.get("USERS_AGENT_URL", "http://users-agent:8000")
 
 agent_card = AgentCard(
     name="users_agent",
-    url="http://users-agent:8000",
+    url=USERS_AGENT_URL,
     description="Agent that works with users operations.",
     version="1.0.0",
     capabilities={},

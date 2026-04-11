@@ -6,10 +6,11 @@ from google.adk.a2a.utils.agent_to_a2a import to_a2a
 from posts.agent import root_agent
 
 PORT = int(os.environ.get("PORT", 8000))
+POSTS_AGENT_URL = os.environ.get("POSTS_AGENT_URL", "http://posts-agent:8000")
 
 agent_card = AgentCard(
     name="posts_agent",
-    url="http://posts-agent:8000",
+    url=POSTS_AGENT_URL,
     description="Agent that works with posts operations.",
     version="1.0.0",
     capabilities={},
