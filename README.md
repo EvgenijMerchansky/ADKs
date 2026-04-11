@@ -2,98 +2,149 @@
 
 ## Overview
 
-Simple ADK application, related to: [www.jsonplaceholder.typicode.com](https://jsonplaceholder.typicode.com/)
+Simple ADK application, based on: [www.jsonplaceholder.typicode.com](https://jsonplaceholder.typicode.com/).
+
+It leverages:
+
+- **ADK (Agent Development Kit)** for agent development
+- **A2A (Agent-to-Agent)** protocol for inter-agent communication
+
+## Architecture Layers
+
+### 1. Agent Layer (A2A Communication)
+
+- **Supervisor Agent**: Orchestrates workflow, coordinates sub-agents, handles routing and error handling
+- **Users Agent**: Receive and format data
+
+### 2. AI Platform
+
+- Vertex AI (LLM, Gemini) for reasoning and NLP
 
 ## Folder Structure
 
 ```
 ADKs/
+│
 ├── infrastructure/
 │   │
 │   └── docker/
 │       └── docker-compose.yml
 │
-├── jsonplaceholder_adk/
+├── agents/
 │   │
-│   ├── agents/
+│   ├── supervisor/
 │   │   │
-│   │   ├── posts/
+│   │   ├── src/
+│   │   │   │
+│   │   │   └── instructions/
+│   │   │       ├── instructions.md
+│   │   │       └── instructions_loader.py
+│   │   │
+│   │   ├── .env.example.py
+│   │   ├── main.py
+│   │   ├── requirements.txt
+│   │   ├── Dockerfile
+│   │   └── agent.py
+│   │
+│   ├── posts/
+│   │   │
+│   │   ├── src/
 │   │   │   │
 │   │   │   ├── instructions/
-│   │   │   │   └── posts.py
+│   │   │   │   ├── instructions.md
+│   │   │   │   └── instructions_loader.py
 │   │   │   │
-│   │   │   ├── schemas/
-│   │   │   │   └── posts.py
+│   │   │   ├── clients/
+│   │   │   │   └── posts_client.py
 │   │   │   │
-│   │   │   ├── tools/
-│   │   │   │   └── jsonplaceholder_posts.py
+│   │   │   ├── pipelines/
+│   │   │   │   └── posts_pipeline.py
 │   │   │   │
-│   │   │   ├── post_pipeline.py
-│   │   │   └── posts_pipeline.py
+│   │   │   └── tools/
+│   │   │       ├── formatters.py
+│   │   │       └── posts_service.py
 │   │   │
-│   │   ├── users/
+│   │   ├── .env.example.py
+│   │   ├── main.py
+│   │   ├── requirements.txt
+│   │   ├── Dockerfile
+│   │   └── agent.py
+│   │   
+│   ├── users/
+│   │   │
+│   │   ├── src/
 │   │   │   │
 │   │   │   ├── instructions/
-│   │   │   │   └── users.py
+│   │   │   │   ├── instructions.md
+│   │   │   │   └── instructions_loader.py
 │   │   │   │
-│   │   │   ├── schemas/
-│   │   │   │   └── users.py
+│   │   │   ├── clients/
+│   │   │   │   └── users_client.py
 │   │   │   │
-│   │   │   ├── tools/
-│   │   │   │   └── jsonplaceholder_users.py
+│   │   │   ├── pipelines/
+│   │   │   │   └── users_pipeline.py
 │   │   │   │
-│   │   │   ├── user_pipeline.py
-│   │   │   └── users_pipeline.py
+│   │   │   └── tools/
+│   │   │       ├── formatters.py
+│   │   │       └── users_service.py
 │   │   │
-│   │   ├── comments/
-│   │   │   │
-│   │   │   ├── instructions/
-│   │   │   │   └── comments.py
-│   │   │   │
-│   │   │   ├── schemas/
-│   │   │   │   └── comments.py
-│   │   │   │
-│   │   │   ├── tools/
-│   │   │   │   └── jsonplaceholder_comments.py
-│   │   │   │
-│   │   │   ├── comment_pipeline.py
-│   │   │   └── comments_pipeline.py
-│   │   │   
-│   │   └── root.py
+│   │   ├── .env.example.py
+│   │   ├── main.py
+│   │   ├── requirements.txt
+│   │   ├── Dockerfile
+│   │   └── agent.py
 │   │
-│   ├── shared/
-│   │   │
-│   │   ├── callbacks/
-│   │   │   └── formatting.py
-│   │   │
-│   │   ├── clients/
-│   │   │   └── jsonplaceholder_client.py
-│   │   │
-│   │   └── constants/
-│   │       ├── formatting.py
-│   │       └── pipelines.py
-│   │
-│   ├── agent.py
-│   ├── Dockerfile
-│   └── requirements.txt
+│   └── comments/
+│       │
+│       ├── src/
+│       │   │
+│       │   ├── instructions/
+│       │   │   ├── instructions.md
+│       │   │   └── instructions_loader.py
+│       │   │
+│       │   ├── clients/
+│       │   │   └── comments_client.py
+│       │   │
+│       │   ├── pipelines/
+│       │   │   └── comments_pipeline.py
+│       │   │
+│       │   └── tools/
+│       │       ├── formatters.py
+│       │       └── comments_service.py
+│       │
+│       ├── .env.example.py
+│       ├── main.py
+│       ├── requirements.txt
+│       ├── Dockerfile
+│       └── agent.py
 │
-├── .env.example
 ├── .gitignore
+├── deps_install.py
 ├── LICENSE
 └── README.md
 ```
 
+## Deployment Architecture
+
+Each agent is deployed as an independent Cloud Run service:
+
+### Agents (Cloud Run Services)
+
+- `supervisor-agent`
+- `users-agent`
+
 ## Technology Stack
 
 - **Agent Framework**: ADK (Agent Development Kit)
+- **Agent Communication**: A2A Protocol
 - **Cloud Platform**: Google Cloud Platform
 - **Deployment**: Cloud Run (serverless containers)
 - **AI/ML**: Vertex AI (Gemini)
 - **Language**: Python 3.11+
 
-### Agents
+## Communication Flow
 
-- `jsonplaceholder_adk`
+1. **Users Flow**: JSONPlaceholder → Users Agent → Response Formatter → Supervisor Agent
 
 ## Getting Started
 
@@ -105,23 +156,22 @@ ADKs/
 
 ### Local development:
 
-1. create venv: `py -m venv .venv`
-2. pass own credentials file in .env: **check** `.env.example`
-3. activate env:
+1. create venv: `py -m venv .venv` in **root** directory
+2. activate env:
     - **macOS/Linux:** `source .venv/bin/activate`
     - **CMD:**`.venv\Scripts\activate.bat`
     - **PowerShell:**`.venv\Scripts\Activate.ps1`
-4. packages:
-    - **Bash:** `python -m pip install -r requirements.txt`
-    - **PowerShell:** `py -m pip install -r requirements.txt`
-5. run: `adk web`
+3. pass own credentials file in .env: **check** `.env.example` into agents directories
+4. install packages: `py .\deps_install.py`
+5. run: `adk web` from **/agents** directory
 6. open: [127.0.0.1:8000](http://127.0.0.1:8000)
 
 ### Docker:
 
-1. build: `docker compose --env-file .env -f infrastructure/docker/docker-compose.yml build`
-2. run: `docker compose --env-file .env -f infrastructure/docker/docker-compose.yml up`
-3. build & run: `docker compose --env-file .env -f infrastructure/docker/docker-compose.yml up --build`
+1. go to `infrastructure/docker/`
+2. build: `docker coompose build`
+3. up: `docker compose up`
+4. build & up: `docker compose up --build`
 4. open: [127.0.0.1:8000](http://127.0.0.1:8000)
 
 ## License

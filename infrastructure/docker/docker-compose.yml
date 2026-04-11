@@ -1,15 +1,57 @@
-version: '3.8'
-
 services:
-  json-placeholder-agent:
+  supervisor-agent:
     build:
       context: ../..
-      dockerfile: jsonplaceholder_adk/Dockerfile
+      dockerfile: agents/supervisor/Dockerfile
     ports:
       - "8000:8000"
+    volumes:
+      - "${GOOGLE_CREDENTIALS_FILE}:/var/secrets/google/sa.json:ro"
     environment:
       GOOGLE_APPLICATION_CREDENTIALS: /var/secrets/google/sa.json
-    volumes:
-      - ${GOOGLE_CREDENTIALS_FILE}:/var/secrets/google/sa.json:ro
+      SUPERVISOR_USE_LOCAL_AGENTS: false
+      SUPERVISOR_AGENT_URL: "http://supervisor-agent:8000"
+      USERS_AGENT_URL: "http://users-agent:8000"
+      POSTS_AGENT_URL: "http://posts-agent:8000"
+      COMMENTS_AGENT_URL: "http://comments-agent:8000"
     env_file:
-      - ../../.env
+      - ./.env
+
+  users-agent:
+    build:
+      context: ../..
+      dockerfile: agents/users/Dockerfile
+    ports:
+      - "8001:8000"
+    volumes:
+      - "${GOOGLE_CREDENTIALS_FILE}:/var/secrets/google/sa.json:ro"
+    environment:
+      GOOGLE_APPLICATION_CREDENTIALS: /var/secrets/google/sa.json
+    env_file:
+      - ./.env
+
+  posts-agent:
+    build:
+      context: ../..
+      dockerfile: agents/posts/Dockerfile
+    ports:
+      - "8002:8000"
+    volumes:
+      - "${GOOGLE_CREDENTIALS_FILE}:/var/secrets/google/sa.json:ro"
+    environment:
+      GOOGLE_APPLICATION_CREDENTIALS: /var/secrets/google/sa.json
+    env_file:
+      - ./.env
+
+  comments-agent:
+    build:
+      context: ../..
+      dockerfile: agents/comments/Dockerfile
+    ports:
+      - "8003:8000"
+    volumes:
+      - "${GOOGLE_CREDENTIALS_FILE}:/var/secrets/google/sa.json:ro"
+    environment:
+      GOOGLE_APPLICATION_CREDENTIALS: /var/secrets/google/sa.json
+    env_file:
+      - ./.env
