@@ -15,6 +15,8 @@ It leverages:
 
 - **Supervisor Agent**: Orchestrates workflow, coordinates sub-agents, handles routing and error handling
 - **Users Agent**: Receive and format data
+- **Posts Agent**: Receive and format data
+- **Comments Agent**: Receive and format data
 
 ### 2. AI Platform
 
@@ -132,6 +134,8 @@ Each agent is deployed as an independent Cloud Run service:
 
 - `supervisor-agent`
 - `users-agent`
+- `posts-agent`
+- `comments-agent`
 
 ## Technology Stack
 
@@ -144,7 +148,10 @@ Each agent is deployed as an independent Cloud Run service:
 
 ## Communication Flow
 
-1. **Users Flow**: JSONPlaceholder → Users Agent → Response Formatter → Supervisor Agent
+1. **Supervisor Flow**: JSONPlaceholder → Sub Agent → Supervisor Agent → User
+2. **Users Flow**: JSONPlaceholder → Users Agent → Response Formatter → Supervisor Agent
+3. **Posts Flow**: JSONPlaceholder → Posts Agent → Response Formatter → Supervisor Agent
+4. **Comments Flow**: JSONPlaceholder → Comments Agent → Response Formatter → Supervisor Agent
 
 ## Getting Started
 
