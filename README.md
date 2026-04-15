@@ -27,6 +27,10 @@ It leverages:
 ```
 ADKs/
 │
+├── doc/
+│
+├── pipelines/
+│
 ├── infrastructure/
 │   │
 │   └── docker/
